@@ -21,7 +21,7 @@ resource "aws_sqs_queue" "junjie_sqs_dlq" {
 }
 
 resource "aws_sqs_queue_redrive_allow_policy" "terraform_queue_redrive_allow_policy" {
-  queue_url = aws_sqs_queue.terraform_queue_deadletter.id
+  queue_url = aws_sqs_queue.junjie_sqs_dlq.id
 
   redrive_allow_policy = jsonencode({
     redrivePermission = "byQueue",
