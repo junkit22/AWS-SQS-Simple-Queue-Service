@@ -5,7 +5,7 @@ resource "aws_sqs_queue" "terraform_queue" {
   message_retention_seconds = 86400
   receive_wait_time_seconds = 10
   redrive_policy = jsonencode({
-    deadLetterTargetArn = aws_sqs_queue.terraform_queue_deadletter.arn
+    deadLetterTargetArn = aws_sqs_queue.junjie_sqs_dlq.arn
     maxReceiveCount     = 4
   })
 
@@ -16,7 +16,7 @@ resource "aws_sqs_queue" "terraform_queue" {
 }
 
 #Dead Letter Queue
-resource "aws_sqs_queue" "terraform_queue_deadletter" {
+resource "aws_sqs_queue" "junjie_sqs_dlq" {
   name = "ce7-junjie-tf-deadletterqueue"
 }
 
