@@ -17,7 +17,7 @@ resource "aws_sqs_queue" "terraform_queue" {
 
 #Dead Letter Queue
 resource "aws_sqs_queue" "terraform_queue_deadletter" {
-  name = "terraform-junjie-tf-deadletter-queue"
+  name = "ce7-junjie-tf-deadletterqueue"
 }
 
 resource "aws_sqs_queue_redrive_allow_policy" "terraform_queue_redrive_allow_policy" {
